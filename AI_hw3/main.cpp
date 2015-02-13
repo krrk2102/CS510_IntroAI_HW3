@@ -50,7 +50,7 @@ int main(void) {
     int choice = 0;
     while (choice != 1 && choice != 2) {
         //cin>>choice;
-        choice = 2;
+        choice = 1;
         if (choice == 1) {
             cout<<"You have chosen standard A* algorithm."<<endl;
             // Perform breadth-first search
@@ -153,8 +153,11 @@ State A_Star(State _Parent, long &_counter) {
                 if (ineligible == false) {
                     for (list<State>::iterator it_tmp = open.begin(); it_tmp != open.end(); ++it_tmp) {
                         if (new_child == *it_tmp) {
-                            ineligible = true;
-                            break;
+							if (it_tmp->getDepth() > new_child.getDepth()) {
+								*it_tmp = new_child;
+							}
+							ineligible = true;
+							break;
                         }
                     }
                 }
@@ -218,6 +221,9 @@ State A_Star_EC(State _Parent, long &_counter) {
 				if (ineligible == false) {
 					for (list<State>::iterator it_tmp = open.begin(); it_tmp != open.end(); ++it_tmp) {
 						if (new_child == *it_tmp) {
+							if (it_tmp->getDepth() > new_child.getDepth()) {
+								*it_tmp = new_child;
+							}
 							ineligible = true;
 							break;
 						}
