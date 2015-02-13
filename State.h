@@ -52,6 +52,8 @@ public:
     
     // Methods to modify data
     void updateState(vector<vector<int> > _board);
+    void heuristic_standard();
+    void heuristic_EC();
     
     // Methods to retrieve data
     int getHeight();
@@ -61,8 +63,6 @@ public:
     vector<brick> getBricks();
     vector<vector<string> > getMove();
     vector<position> getExit();
-    double heuristic_standard();
-    double heuristic_EC();
     
     // Methods required by assignments
     void state_display();

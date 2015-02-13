@@ -21,10 +21,10 @@ using namespace std;
 
 /*
  * This program is homework 3 of course CS 510.
- * It can perform breath and depth search for solving a puzzle. Also, it can perform iterative deepening search required in extra credit.
+ * It can perform A* search for solving a puzzle. Also contains an extra credit A*.
  * All interaction with users will be displayed as program runs, there is no need to have input arguments in command line other than program name itself.
- * There are 4 default input file choices, by simply entering 1 to 4. Hints will output to screen.
- * You can choose different search algorithm by pressing 1 to 3.
+ * There are 11 default input file choices, by simply entering 1 to 11. Hints will output to screen.
+ * You can choose different search algorithm by pressing 1 and 2.
  * Result will be displayed on screen once the program comes to an end. Result includes move list, number of steps, final state, nodes calculated and search time.
  */
 
@@ -48,9 +48,9 @@ int main(void) {
     State InitialState = readfile(filename);
     cout<<"Press 1 for standard A* search algorithm\nPress 2 for improved A* search algorithm(Extra Credit)\nPlease enter your choice:"<<endl;
     int choice = 0;
-    while (choice != 1 && choice != 2 && choice != 3) {
+    while (choice != 1 && choice != 2) {
         //cin>>choice;
-        choice = 1;
+        choice = 2;
         if (choice == 1) {
             cout<<"You have chosen standard A* algorithm."<<endl;
             // Perform breadth-first search

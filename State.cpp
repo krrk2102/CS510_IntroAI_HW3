@@ -307,7 +307,8 @@ vector<position> State::getExit() {
     return exit;
 }
 
-double State::heuristic_standard() {
+// Calculate heuristic value
+void State::heuristic_standard() {
     heuristic = 0;
     for (int i = 0; i < (int)bricks[0].members.size(); i++) {
         for (int j = 0; j < (int)exit.size(); j++) {
@@ -316,19 +317,18 @@ double State::heuristic_standard() {
     }
     heuristic = heuristic/((double)bricks[0].members.size()*(double)exit.size());
     heuristic += (double)depth;
-    return heuristic;
 }
 
-double State::heuristic_EC() {
+// Calculate heuristic value for extra credit
+void State::heuristic_EC() {
     heuristic = 0;
     for (int i = 0; i < (int)bricks[0].members.size(); i++) {
         for (int j = 0; j < (int)exit.size(); j++) {
             heuristic += abs(bricks[0].members[i].y-exit[j].y) + abs(bricks[0].members[i].x-exit[j].x);
         }
     }
-    heuristic /= 1.1;
+    heuristic = heuristic/(double)exit.size();
     heuristic += (double)depth;
-    return heuristic;
 }
 
 // Display state board to screen.
