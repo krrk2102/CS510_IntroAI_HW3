@@ -1,6 +1,6 @@
 //
 //  main.cpp
-//  AI_hw2
+//  AI_hw3
 //
 //  Created by Shangqi Wu on 15/2/2.
 //  Copyright (c) 2015 Shangqi Wu. All rights reserved.
@@ -135,10 +135,10 @@ State A_Star(State _Parent, long &_counter) {
             for (int j = 0; j < (int)moves_of_node[i].size()-1; j++) {
                 State new_child = current_node.applyMoveCloning(brick_no, moves_of_node[i][j]);
                 new_child.heuristic_standard();
-                _counter++;
                 if (new_child.complete_check() == true) {
                     closed.push_back(new_child);
                     solution = new_child;
+					_counter = (int)open.size() + (int)closed.size() + 1;
                     return solution;
                 }
                 new_child.state_norm();
@@ -203,10 +203,10 @@ State A_Star_EC(State _Parent, long &_counter) {
 			for (int j = 0; j < (int)moves_of_node[i].size()-1; j++) {
 				State new_child = current_node.applyMoveCloning(brick_no, moves_of_node[i][j]);
 				new_child.heuristic_EC();
-				_counter++;
 				if (new_child.complete_check() == true) {
 					closed.push_back(new_child);
 					solution = new_child;
+					_counter = (int)open.size() + (int)closed.size() + 1;
 					return solution;
 				}
 				new_child.state_norm();
