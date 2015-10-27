@@ -42,8 +42,7 @@ void get_filename(string &file_name);
 int main(void) {
     string filename;
     // Get filename from user input
-    //get_filename(filename);
-    filename = "/Users/wushangqi/AI_hw3/program/SBP-bricks-level1.txt";
+    get_filename(filename);
     // Load state from text file
     State InitialState = readfile(filename);
     cout<<"Press 1 for standard A* search algorithm\nPress 2 for improved A* search algorithm(Extra Credit)\nPlease enter your choice:"<<endl;
